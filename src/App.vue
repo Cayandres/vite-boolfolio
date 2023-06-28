@@ -1,9 +1,15 @@
 <script>
 import { store } from "./store/store.js";
 import  axios  from 'axios';
+import Card from './components/card.vue';
+
 
 export default {
   name: "home",
+  components:{
+    Card
+  },
+
   data(){
     return{
 
@@ -31,11 +37,8 @@ export default {
 
   <div class="cont">
     <h1>Progetti</h1>
-    <ul>
-      <li v-for="project in projects" :key="project.id">
-        <span>{{ project.name }}</span>
-      </li>
-    </ul>
+        <card>
+        </card>
   </div>
 
 </template>
