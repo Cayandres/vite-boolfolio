@@ -36,9 +36,12 @@ export default {
 <template>
 
   <div class="cont">
-    <h1>Progetti</h1>
-        <card>
-        </card>
+ 
+    <router-view>
+      
+    </router-view>
+        <!-- <card>
+        </card> -->
   </div>
 
 </template>
