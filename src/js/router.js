@@ -2,11 +2,17 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Home from './pages/Home.vue'
 import Contacts from './pages/Contacts.vue'
+import Error404 from './pages/Error404.vue'
+import About from './pages/About.vue'
+import Blog from './pages/Blog.vue'
+
+
 
 
 const router = createRouter({
 
   history: createWebHistory(),
+  linkExactActiveClass: 'active',
 
   routes:[
     {
@@ -20,7 +26,18 @@ const router = createRouter({
       component: Contacts
     },
     {
-      
+      path: '/chi-siamo',
+      name: 'about',
+      component: About
+    },
+    {
+      path: '/Blog',
+      name: 'blog',
+      component: Blog
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      component: Error404
     }
   ]
 

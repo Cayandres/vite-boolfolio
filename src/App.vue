@@ -1,51 +1,51 @@
 <script>
 import { store } from "./store/store.js";
-import  axios  from 'axios';
-import Card from './components/card.vue';
+import axios from "axios";
+import Card from "./js/components/Card.vue";
+import Header from "./js/components/Header.vue";
 
 
 export default {
   name: "home",
-  components:{
-    Card
+  components: {
+    Card,
+    Header,
   },
 
-  data(){
-    return{
-
-      projects:[]
-
-    }
+  data() {
+    return {
+      projects: [],
+      links: []
+    };
   },
 
   methods: {
-    getApi() {
-      axios.get(store.apiUrl + 'projects').then((results) => {
-        this.projects = results.data
-        console.log(this.projects);
-      })
-    }
+    getApi(endpoint) {
+      axios.get(endpoint).then((results) => {
+        this.projects = results.data.data;
+        this.links = results.data.links;
+      });
+    },
   },
 
-  mounted(){
-    this.getApi();
-  }
+  mounted() {
+    this.getApi(store.apiUrl + "projects");
+  },
 };
 </script>
 
 <template>
 
-  <div class="cont">
- 
-    <router-view>
-      
-    </router-view>
-        <!-- <card>
-        </card> -->
-  </div>
+    <Header/>
+
+    <div class="container">
+
+      <router-view></router-view>
+
+    </div>
 
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 
 </style>
