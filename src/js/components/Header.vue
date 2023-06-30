@@ -21,6 +21,7 @@ export default {
     <li>
       <router-link :to="{ name: 'blog' }">Blog</router-link>
     </li>
+    
   </ul>
 </template>
 

@@ -1,7 +1,4 @@
 <script>
-import { store } from "../../store/store.js";
-import axios from "axios";
-
 export default {
   name: "Card",
 
@@ -33,6 +30,7 @@ export default {
     <li>
       <div class="card">
         <h1>{{ project.name }}</h1>
+        <h3><router-link :to="{name: 'Detail', params:{slug: project.slug}}">{{ project.name }}</router-link></h3>
         <p>{{ project.description }}</p>
         <span>{{ formattedData }}</span>
         <div class="container-small">
